@@ -4,10 +4,10 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # Different environments for the app to run in
 
 class Config(object):
-  DEBUG = False
+  DEBUG = True
   CSRF_ENABLED = True
   CSRF_SESSION_KEY = "secret"
-  SECRET_KEY = "not_this"
+  SECRET_KEY = "sdjfhskdhfksjdhf"
   SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 class ProductionConfig(Config):

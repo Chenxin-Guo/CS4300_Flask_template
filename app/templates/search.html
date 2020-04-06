@@ -23,14 +23,82 @@
             <div class="form-group">
                 <input id="input" type="text" name="search" class="form-control" placeholder="Your Input">
             </div>
+
+            <fieldset>
+                  <legend>Selecting Subreddit Title</legend>
+                  <p>
+                     <label>Select list</label>
+                     <select id = "myList" name="sub">
+                        {%for i in sub_li%}
+                            <option value = {{i.subreddit}}> {{i.subreddit}} </option>
+                        {% endfor %}
+                     </select>
+                  </p>
+            </fieldset>
+            
+
             <button type="submit" class="btn btn-info"> Go! </button>
         </form>
+
+
+        <form>
+            <label>Username:</label>
+            <input type="text" name="username"/>
+            <label>First name:</label>
+            <input type="text" name="fname"/>
+            <label>Last name:</label>
+            <input type="text" name="lname"/>
+            <label>Email:</label>
+            <input type="text" name="email"/>
+            <label>Password:</label>
+            <input type="text" name="password"/>
+            <button type="submit" class="btn btn-info"> Go! </button>
+        </form>
+
+        <!-- <form>
+       <fieldset>
+          <legend>Selecting Subreddit Title</legend>
+          <p>
+             <label>Select list</label>
+             <select id = "myList" name="sub">
+
+               <option value = "1">one</option>
+               <option value = "2">two</option>
+               <option value = "3">three</option>
+               <option value = "4">four</option>
+             </select>
+          </p>
+       </fieldset>
+       <button type="submit" class="btn btn-info"> Find the Topic! </button>
+    </form> -->
+
+
+<form>
+       <fieldset>
+          <legend>Selecting Subreddit Title</legend>
+          <p>
+             <label>Select list</label>
+             <select id = "myList" name="sub">
+                {%for i in sub_li%}
+                    <option value = {{i.subreddit}}> {{i.subreddit}} </option>
+                {% endfor %}
+             </select>
+          </p>
+       </fieldset>
+       <button type="submit" class="btn btn-info"> Find the Topic! </button>
+    </form>
+
+
+
+
+
         <form class="form-inline global-search">
         {% if data %}
             <h1>{{output_message}}</h1>
             {% for d in data %}  
                 <br>
                 <p>{{d}}</p>
+                
             {% endfor %}
         {% endif %}
         </form>

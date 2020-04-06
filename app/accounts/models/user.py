@@ -1,4 +1,5 @@
 from . import *
+import flask
 
 class User(Base):
   __tablename__ = 'users'
@@ -12,10 +13,14 @@ class User(Base):
     self.email           = kwargs.get('email', None)
     self.fname           = kwargs.get('fname', None)
     self.lname           = kwargs.get('lname', None)
-    self.password_digest = generate_password_hash(kwargs.get('password'), None)
+    self.password_digest = kwargs.get('password', None)
 
   def __repr__(self):
     return str(self.__dict__)
+
+  def insert_self(self):
+    db.session.add(self)
+    db.session.commit()
 
 
 class UserSchema(ModelSchema):
